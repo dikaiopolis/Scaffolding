@@ -35,12 +35,12 @@
 
 -(void)showIsPalindrone
 {
-    resultLabel.text = @"Not a palindrone!";
+    resultLabel.text = @"IS a palindrone!";
 }
 
 -(void)showIsNotPalindrone
 {
-    resultLabel.text = @"IS a palindrone!";
+    resultLabel.text = @"IS NOT a palindrone!";
 }
 
 
@@ -60,8 +60,15 @@
 {
     const char* arrayOfCharacters = [self getCharacterArray];
     BOOL isPalindrome = NO;
+    int sizeOfArray = sizeof(arrayOfCharacters) - 1;
     
+    for (int i = 0; i <= sizeOfArray/2; i++) {
+        isPalindrome = arrayOfCharacters[i] == arrayOfCharacters[sizeOfArray - i];
     
+        if (!isPalindrome) {
+            break;
+        }
+    }
     // Insert code in here to check the characters of the array for palindronishness
     
     
@@ -69,7 +76,7 @@
         [self showIsPalindrone];
     }
     else{
-        [self showIsPalindrone];
+        [self showIsNotPalindrone];
     }    
 }
 

@@ -13,7 +13,8 @@
     NSArray*                choices;
     NSTimer*                timer;
     int                     count;
-    
+    NSObject*               anObject;
+
 
     __weak IBOutlet UILabel *countDownLabel;
     __weak IBOutlet UILabel *computerHandLabel;
@@ -32,6 +33,8 @@
     BOOL computerWon;
     
     computerWon = YES;// replace the YES with a call to your custom Judge class
+    anObject = [[NSObject alloc] init];
+
     
     if (computerWon) {
         computerHandLabel.backgroundColor = [UIColor greenColor];
@@ -46,7 +49,12 @@
 {
     [super viewDidLoad];
 
+    anObject = [[NSObject alloc] init];
+
     choices = @[@"rock", @"paper", @"scissors"];
+    choices = [NSArray arrayWithObjects:@"", @"", @"", nil];
+    choices = [[NSArray alloc] initWithObjects:@"", @"", @"", nil];
+    
     count = 3;
     [self updateCount];
 }

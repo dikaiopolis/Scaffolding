@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad
 {
-    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/api/members.json"]];
+    NSURLRequest* urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://mobilemakers.co/lib/superheroes.json"]];
     
     [super viewDidLoad];
     
@@ -58,10 +58,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* tableViewCell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Person" forIndexPath:indexPath];
+    UITableViewCell* tableViewCell = (UITableViewCell*)[tableView dequeueReusableCellWithIdentifier:@"Superhero" forIndexPath:indexPath];
     
     tableViewCell.textLabel.text = [((NSDictionary*)[people objectAtIndex:indexPath.row]) valueForKey:@"name"];
-    tableViewCell.detailTextLabel.text = [((NSDictionary*)[people objectAtIndex:indexPath.row]) valueForKey:@"email"];
+    tableViewCell.detailTextLabel.text = [((NSDictionary*)[people objectAtIndex:indexPath.row]) valueForKey:@"description"];
     tableViewCell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[((NSDictionary*)[people objectAtIndex:indexPath.row]) valueForKey:@"avatar_url"]]]];
     return tableViewCell;
 }
